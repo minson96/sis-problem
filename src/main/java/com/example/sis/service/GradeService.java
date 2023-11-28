@@ -18,7 +18,12 @@ public class GradeService {
 	private final StudentRepository studentRepository;
 	//c
 	public void enterGrade(Student student, String lecture, int score) {
-		student.getMajor()
+		if (student.getRequiredSubject() == lecture){
+
+		} else {
+
+		}
+		student.getRequiredSubject()
 		Grade grade = Grade.builder()
 			.student(student)
 			.lecture(lecture)
@@ -26,6 +31,8 @@ public class GradeService {
 			.build();
 		gradeRepository.save(grade);
 	}
+
+	public char selectGrade()
 	//r
 	public List<Grade> getLectureGradeList(String lecture) {
 		return gradeRepository.findByLecture(lecture);
